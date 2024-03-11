@@ -27,6 +27,6 @@ Things you may want to cover:
 * Database initialization
 
 * How to run the test suite
-  - Run the command "rspec"
+  - Run the commands "bundle exec rspec ./spec/controllers/cities_controller_spec.rb" and "bundle exec rspec ./spec/routing/city_routing_spec.rb"
 
 ![image](https://github.com/NickCamara/cities_search/assets/75806711/17760c25-5b34-4af1-acb4-784479e75a14)
