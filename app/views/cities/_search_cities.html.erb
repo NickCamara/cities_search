@@ -1,16 +1,17 @@
 <%= search_form_for @q, html: { class: "form-horizontal" } do |f| %>
-  <div class="row">
-    <div class="form-group col-md-3">
-      <%= f.label :Cities_name %>
-      <%= f.text_field :name_cont, class: 'form-control' %>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <%= f.label :Cities_name %>
+        <%= f.text_field :name_cont, class: 'form-control' %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.label :States_name%>
+        <%= f.text_field :state_name_cont, class: 'form-control' %>
+      </div>
+      <div class="col-md-12" style="margin-top: 20px">
+        <%= f.submit "Search", name: nil, class: 'btn btn-primary' %>
+        <%= link_to 'Clear', cities_path, class: 'btn btn-default' %>
+      </div>
     </div>
-    <div class="form-group col-md-3">
-      <%= f.label :States_name%>
-      <%= f.text_field :state_name_cont, class: 'form-control' %>
-    </div>
-    <div class="col-md-12" style="margin-top: 20px">
-      <%= f.submit "Pesquisar", name: nil, class: 'btn btn-primary' %>
-      <%= link_to 'Limpar', cities_path, class: 'btn btn-default' %>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

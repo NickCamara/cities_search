@@ -1,22 +1,41 @@
-<h1>All Cities</h1>
-<div class="container-fluid">
-  <div class="page-header">
-    <h1 class="margin-b-sm margin-l-md cursor-default">
-      Cities
-    </h1>
-  </div>
-  <div class="portlet">
-    <div class="portlet-title bg-gray-darker text-white">
-      <span class="title">
-        <%= "Search" %>
-      </span>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cities Search</title>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Cities Search</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <main class="container mt-4">
+    <div class="jumbotron">
+      <h1 class="display-4">Brazilian Cities</h1>
+      <hr class="my-4">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group">
+            <div class="input-group-append">
+              <%= render 'search_cities' %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="portlet-body">
-      <%= render 'search_cities' %>
-    </div>
-  </div>
-<ul>
-  <% @cities.each do |city| %>
-    <li><%= city.name %> - <%= city.state.name %></li>
-  <% end %>
-</ul>
+
+    <ul class="list-group">
+      <% @cities.each do |city| %>
+        <li class="list-group-item"><%= "#{city.name} - #{city.state.name}" %></li>
+      <% end %>
+    </ul>
+  </main>
+
+</body>
+</html>
