@@ -18,7 +18,9 @@ Things you may want to cover:
   - Run "bundle install"
 * Database creation
   - Open the database.yml file to config the user and password of the postgresql
-  - Run docker-compose up
+  - Run "docker-compose build"
+  - Run "docker-compose up"
+  - Run "docker exec -it (container_id) /bin/bash"
   - Run "rails db:create"
   - Run "rails db:migrate"
   - Run "rails db:seed" to populate the database
