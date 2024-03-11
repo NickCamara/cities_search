@@ -1,21 +1,23 @@
-# Use the official Ruby image as the base image
-FROM ruby:2.7.0
+FROM ruby:2.7.0-alpine
 
-# Set the working directory in the container
+RUN apk add --update build-base bash bash-completion libffi-dev tzdata postgresql-client postgresql-dev nodejs npm yarn
+
 WORKDIR /app
 
-# Copy the Gemfile and Gemfile.lock into the container
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile* /app/
 
-RUN apt-get update -qq && apt-get install -y nodejs npm
-# Install dependencies
+RUN gem install bundler -v 2.4.22
+
 RUN bundle install
 
-# Copy the rest of the application code into the container
-COPY . .
+RUN bundle binstubs --all
 
-# Expose port 3000
-EXPOSE 3000
+RUN touch $HOME/.bashrc
 
-# Start the Rails application
-CMD ["rails", "server", "-b", "0.0.0.0"]
+RUN echo "alias ll='ls -alF'" >> $HOME/.bashrc
+RUN echo "alias la='ls -A'" >> $HOME/.bashrc
+RUN echo "alias l='ls -CF'" >> $HOME/.bashrc
+RUN echo "alias q='exit'" >> $HOME/.bashrc
+RUN echo "alias c='clear'" >> $HOME/.bashrc
+
+CMD [ "/bin/bash" ]
